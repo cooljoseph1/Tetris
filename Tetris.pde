@@ -203,6 +203,22 @@ class Block {
       position[1] = center[1] + dif_x;
     }
   }
+  
+  void rotateRight() { // safe rotation
+    Block temp = clone();
+    temp.rotateRightDangerous();
+    if(temp.left() >= 0 && temp.right() < 10 && temp.bottom() < 20) {
+      rotateRightDangerous();
+    }
+  }
+  
+  void rotateLeft() { // safe rotation
+    Block temp = clone();
+    temp.rotateLeftDangerous();
+    if(temp.left() >= 0 && temp.right() < 10 && temp.bottom() < 20) {
+      rotateLeftDangerous();
+    }
+  }
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
